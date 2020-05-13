@@ -4,10 +4,17 @@ public class Calcul{
 	double aireSphere;
 	double volumeSphere;
 	double aireSecteurDisque;
+	int nb1;
+	int nb2;
+	int tabDeuxNombres[] = new int[2];
 	
 	public Calcul(int x, int y){
 		setMoyenneDeuxNombres(x, y);	
 		setAireSecteurDisque(x,y);
+		
+	}
+	public Calcul(int [] tabDeuxNombres){
+		setInversionDeuxNombres(tabDeuxNombres);
 	}
 	public Calcul(int rayon){
 		setAireSphere(rayon);
@@ -37,5 +44,14 @@ public class Calcul{
     public double getAireSecteurDisque(){
     	return aireSecteurDisque;
     }
-    
+	public void setInversionDeuxNombres(int [] tabDeuxNombres){
+			this.nb1 = tabDeuxNombres[0];
+			this.nb2= tabDeuxNombres[1];
+			this.tabDeuxNombres[0] = nb2;
+			this.tabDeuxNombres[1] = nb1;
+	}
+
+	public int [] getInversionDeuxNombres(){
+			return tabDeuxNombres;
+	}
 }
