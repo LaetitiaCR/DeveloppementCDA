@@ -141,10 +141,118 @@ public class Operations{
     	dureePlacementMois = periode.getMonths() + periode.getYears() *12;
     	
     	
-    	double interet;
-    	interet = montantVersement*(1+tauxPlacement)*(dureePlacementMois/12);
-    	System.out.println(dureePlacementMois + " " + interet);
+    	double interetSimple;
+    	interetSimple = montantVersement*(1+tauxPlacement)*(dureePlacementMois/12);
+    	System.out.println(dureePlacementMois + " " + interetSimple);
     	
         
+    	
+    	   	
+    	//indique si le chifffre Entree est un nombre premier
+    	
+    	//entrer un nombre différent de 0 et 1 et 2
+    	float nbEntree=26;
+    	int nbMaxPremierListe = (int) Math.sqrt(nbEntree);
+    	//liste des nombres premiers jusqu'à racine de nbEntree
+    	
+    	// on teste si N est divisible par 2, puis on teste les diviseurs impairs par ordre
+    	// croissant tant que ceux-ci sont inférieur à √N
+    	float resultatDivision=0;
+    	String resultatDivisionStr;
+    
+    	boolean estNbPremier = false;
+    	//boolean estDivisibleParDeux = true;
+    	//resultatDivision = nbEntree/tabNombreIndivisible[i];
+		DecimalFormat df2 = new DecimalFormat("#.##");
+		
+    	//int i=1;
+    	int nbImpair=1;
+    	while(nbImpair<=nbMaxPremierListe){
+    		
+    		if(nbImpair<3){
+    				resultatDivision = nbEntree/2;
+    				if(nbEntree==2){
+						estNbPremier = true;
+						break;
+					}
+    				
+    		}
+    		
+    			
+    		
+    		else{
+				resultatDivision = nbEntree/nbImpair;
+    		}
+    		
+    		
+			resultatDivisionStr = String.valueOf(df2.format(resultatDivision));
+			int positionPoint = resultatDivisionStr.indexOf(".");
+			int positionVirgule = resultatDivisionStr.indexOf(",");
+			int positionPointOuVirgule;
+			if ( positionPoint != -1 || positionVirgule != -1){
+				if ( positionPoint != -1){
+					positionPointOuVirgule = positionPoint + 1 ;
+				}
+				else {
+					positionPointOuVirgule = positionVirgule + 1;
+				}
+				int finChaine = resultatDivisionStr.length();
+				String resultatApresVirguleStr = resultatDivisionStr.substring(positionPointOuVirgule, finChaine); 
+				int resultatApresVirguleInt = Integer.parseInt(resultatApresVirguleStr);
+			
+				if (resultatApresVirguleInt > 0){
+					if(nbImpair>=3){
+						estNbPremier = true;
+						break;
+					}
+					
+					
+					else{
+						//if(nbImpair<3)
+						//estDivisibleParDeux = false;
+						if (nbEntree<=7){
+							if(nbEntree==1 || nbEntree==2){
+								estNbPremier = false;
+								break;
+							}
+							
+							else {
+								estNbPremier = true;
+								break;
+							}
+					
+						}
+						
+					}
+					
+					
+				}
+				else{
+					if(nbImpair<3){
+						estNbPremier = true;
+						break;
+					}
+				}
+			}
+			else{
+				estNbPremier = false;
+				break;
+			}
+			//i = i +2;
+			nbImpair = nbImpair + 2;
+    	}
+
+
+	
+    	
+    
+    	int nbEntreeInt = (int) nbEntree;
+    	if (estNbPremier == true){
+    		System.out.println(nbEntreeInt + " est un nombre premier");	
+    	}
+    	else{
+    		System.out.println(nbEntreeInt + " n'est pas un nombre premier");	
+    	}
+    	
     }
 }
