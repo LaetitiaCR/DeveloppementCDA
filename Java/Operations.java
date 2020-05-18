@@ -44,21 +44,28 @@ public class Operations{
     	System.out.println(df.format(calc2.getVolumeSphere()));
         
     	
-    	/*
     	
+    	
+    	
+    	
+    	
+    	
+    	/*
+    	//calcul l'aire d'un secteur de disque après avoir entrer son rayn et son degré
+    	 
     	rayon =5;
     	//degré du disque
     	
     	//int delta = 30;
     	boolean erreurDelta = false;
     	boolean estUnCaractere = false;
-    	Scanner myInput = new Scanner( System.in );
+    	Scanner scan = new Scanner( System.in );
     	
 		while(erreurDelta==false){
     		
     		System.out.println("Entrer delta un entier en degré : ");
     	
-    		String sDelta = myInput.next();
+    		String sDelta = scan.next();
     		
     		for (int i=0; i < sDelta.length(); i++){
     		
@@ -87,21 +94,15 @@ public class Operations{
     				System.out.println(calc3.getAireSecteurDisque());
     				erreurDelta=true;
     			}
-    				
-    					
-    		}
-    		
-    		
-    		
-		    	
-		 
+		
+    		}	    	
 		}
-    	    	
-    	myInput.close();
 		
 		*/
     	
     	
+    	
+    	//inversion de deux nombres
     	
     	nb1 = 15;
 		nb2 = 10;
@@ -120,6 +121,8 @@ public class Operations{
    
     	
     	
+    	
+    	//placement montant des intérêts simples
     	
     	double montantVersement = 1526812; 
     	double tauxPlacement = 0.5;
@@ -143,11 +146,15 @@ public class Operations{
     	
         
     	
+    	
+    	
+    	//nombres premier à revoir
     	   	
     	//indique si le chifffre Entree est un nombre premier
     	
+    	/*
     	//entrer un nombre différent de 0 et 1 et 2
-    	float nbEntree=26;
+    	float nbEntree=25;
     	int nbMaxPremierListe = (int) Math.sqrt(nbEntree);
     	//liste des nombres premiers jusqu'à racine de nbEntree
     	
@@ -163,82 +170,81 @@ public class Operations{
 		
     	//int i=1;
     	int nbImpair=1;
-    	while(nbImpair<=nbMaxPremierListe){
+    	boolean sortir = false;
+    	while(nbImpair<=nbMaxPremierListe && sortir == false){
     		
     		if(nbImpair<3){
     				resultatDivision = nbEntree/2;
     				if(nbEntree==2){
 						estNbPremier = true;
+						//sortir = true;
 						break;
-					}
-    				
+    				}				
     		}
-    		
-    			
-    		
     		else{
 				resultatDivision = nbEntree/nbImpair;
     		}
     		
-    		
-			resultatDivisionStr = String.valueOf(df2.format(resultatDivision));
-			int positionPoint = resultatDivisionStr.indexOf(".");
-			int positionVirgule = resultatDivisionStr.indexOf(",");
-			int positionPointOuVirgule;
-			if ( positionPoint != -1 || positionVirgule != -1){
-				if ( positionPoint != -1){
-					positionPointOuVirgule = positionPoint + 1 ;
-				}
-				else {
-					positionPointOuVirgule = positionVirgule + 1;
-				}
-				int finChaine = resultatDivisionStr.length();
-				String resultatApresVirguleStr = resultatDivisionStr.substring(positionPointOuVirgule, finChaine); 
-				int resultatApresVirguleInt = Integer.parseInt(resultatApresVirguleStr);
-			
-				if (resultatApresVirguleInt > 0){
-					if(nbImpair>=3){
-						estNbPremier = true;
-						break;
+    		if(sortir == false){
+				resultatDivisionStr = String.valueOf(df2.format(resultatDivision));
+				int positionPoint = resultatDivisionStr.indexOf(".");
+				int positionVirgule = resultatDivisionStr.indexOf(",");
+				int positionPointOuVirgule;
+				
+				if ( positionPoint != -1 || positionVirgule != -1){
+					if ( positionPoint != -1){
+						positionPointOuVirgule = positionPoint + 1 ;
 					}
-					
-					
-					else{
-						//if(nbImpair<3)
-						//estDivisibleParDeux = false;
-						if (nbEntree<=7){
-							if(nbEntree==1 || nbEntree==2){
-								estNbPremier = false;
-								break;
-							}
-							
-							else {
-								estNbPremier = true;
-								break;
-							}
-					
+					else {
+						positionPointOuVirgule = positionVirgule + 1;
+					}
+					int finChaine = resultatDivisionStr.length();
+					String resultatApresVirguleStr = resultatDivisionStr.substring(positionPointOuVirgule, finChaine); 
+					int resultatApresVirguleInt = Integer.parseInt(resultatApresVirguleStr);
+				
+					if (resultatApresVirguleInt > 0){
+						if(nbImpair>=3){
+							estNbPremier = true;
+							break;
+							//sortir = true;
 						}
-						
+						else{
+							//if(nbImpair<3)
+							//estDivisibleParDeux = false;
+							if (nbEntree<=7){
+								if(nbEntree==1 || nbEntree==2){
+									estNbPremier = false;
+									sortir = true;
+									break;
+								}		
+								else {
+									estNbPremier = true;
+									sortir=true;
+									break;
+								}
+							}
+						}
 					}
-					
-					
+					else{
+						if(nbImpair<3){
+							estNbPremier = true;
+							sortir = true;
+							break;
+						}
+					}
 				}
 				else{
-					if(nbImpair<3){
-						estNbPremier = true;
-						break;
-					}
+					estNbPremier = false;
+					sortir = true;
+					break;
 				}
-			}
-			else{
-				estNbPremier = false;
-				break;
-			}
-			//i = i +2;
-			nbImpair = nbImpair + 2;
-    	}
-  	
-    
+				//i = i +2;
+				if(sortir==false){
+					nbImpair = nbImpair + 2;
+				}
+	    	}
+    	}  	
+	    
     	int nbEntreeInt = (int) nbEntree;
     	if (estNbPremier == true){
     		System.out.println(nbEntreeInt + " est un nombre premier");	
@@ -247,6 +253,14 @@ public class Operations{
     		System.out.println(nbEntreeInt + " n'est pas un nombre premier");	
     	}
  
+    	*/
+    	
+    	
+    	
+    	
+    	
+    	
+    	
     	
     	//Trier une liste par ordre croissant
     	// sans doublons
@@ -258,6 +272,7 @@ public class Operations{
     	String strTabNombreTrier = "";
     	for (int i=0; i < tabNombreEntree.length; i++) {
     		position1 = i;
+    		
     		for (int y=0; y<tabNombreEntree.length; y++){
 	    		if (tabNombreEntree[position1]<tabNombreEntree[y]){
 	    			count++;
@@ -286,6 +301,7 @@ public class Operations{
     	for (int i=0; i < tabNombreTrier.length; i++) {
     		strTabNombreTrier = strTabNombreTrier + " "  + tabNombreTrier[i] ;
     	}
+    	
     	System.out.println("La liste entrée à été triée par ordre croissant" + strTabNombreTrier);
     	
     	
@@ -297,16 +313,9 @@ public class Operations{
     	
     	
     	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    
+ 
+   	
+    	//entrer une année et dire s'il elle est bissextile
     	
     	int annee = 2024;
     	int moisFevrier = 2;
@@ -353,31 +362,23 @@ public class Operations{
 				System.out.println("erreur");
 				break;
         }
-        
-       
-       
       
     	int moisMars = 3;
     	int jourDebutMars = 1;
         
-        
-    	//int jourFin = 29;	
-        
         GregorianCalendar calendarMarsDebut = new GregorianCalendar();
     	
-    	//Calendar calendar = Calendar.getInstance();
-    	//calendar.setTime(2018, 11, 01);
         calendarMarsDebut.set(Calendar.YEAR, annee);
         calendarMarsDebut.set(Calendar.MONTH, moisMars-1);
         calendarMarsDebut.set(Calendar.DAY_OF_MONTH, jourDebutMars);
         
-        //on enlève 1 jours à mars
+        //on enlève 1 jours au premier mars
         calendarMarsDebut.add(Calendar.DATE, -1);
         
         int dernierJourFevrier = calendarMarsDebut.get(Calendar.DAY_OF_MONTH);
         
         System.out.println(dernierJourFevrier);
-        
+        //si fevrier est sur 29 jours alors bissextile
         if(dernierJourFevrier==29){
         	System.out.println("L'année " + annee + " est une année bissextile");
         }
@@ -390,32 +391,43 @@ public class Operations{
         
         
         
-        //jeu ordinateur et un joueur
+        
+        
+        
+        
+        //jeu ordinateur et un joueur avec 0, 1 et 2
        
         int min = 0;
         int max = 2;
+        boolean estNbNegatif=false;
         String nbEntrerStr;
         int nbEntrerInt;
-        Scanner maSaisie = new Scanner( System.in );
+        Scanner scan = new Scanner( System.in );
         int scoreOrdinateur =0;
         int scoreJoueur = 0;
-        int nbQuitter =0;
-        while (scoreJoueur <=10 || scoreOrdinateur <=10 || nbQuitter > 0){
+       // int nbQuitter =0;
+        while (scoreJoueur <10 && scoreOrdinateur <10 && estNbNegatif==false){
         	System.out.println("Entrer un nombre 0, 1 ou 2, Entrer un nombre négatif pour sortir : ");
-        	nbEntrerStr = maSaisie.next();
+        	nbEntrerStr = scan.next();
         	nbEntrerInt = Integer.parseInt(nbEntrerStr);
         	if(nbEntrerInt == 0 || nbEntrerInt == 1 || nbEntrerInt == 2){	
         		int nbAleatoire = min + (int)(Math.random() * ((max - min) + 1));
         		System.out.println("Le nombre tiré par l'ordiateur est : " + nbAleatoire);
-        		if(nbAleatoire>nbEntrerInt){
+        		if((nbAleatoire-nbEntrerInt)==2){
+        			scoreOrdinateur = scoreOrdinateur +2;
+        		}
+        		else if((nbEntrerInt - nbAleatoire)==2){
+        			scoreJoueur = scoreJoueur + 2;
+        		}
+        		if((nbAleatoire-nbEntrerInt)==1){
         			scoreOrdinateur = scoreOrdinateur +1;
         		}
-        		else if(nbAleatoire<nbEntrerInt){
+        		else if((nbEntrerInt - nbAleatoire)==1){
         			scoreJoueur = scoreJoueur + 1;
         		}
         	}
         	else if(nbEntrerInt < 0){
-        		break;	//on quitte la partie
+        		estNbNegatif = true;	//on quitte la partie
         	}
         	else{
         		System.out.println("Erreur");
@@ -423,8 +435,73 @@ public class Operations{
         	
         	System.out.println("Les scores sont, pour l'ordinateur : " + scoreOrdinateur + " et pour le joueur : " + scoreJoueur);
         }
-       
-        maSaisie.close();
         
+        if (scoreOrdinateur>scoreJoueur){
+        	System.out.println("L'ordinateur a gagné et le joueur est perdant");
+        }
+        else if (scoreOrdinateur<scoreJoueur){
+        	System.out.println("Le joueur a gagné et l'ordinateur est perdant");
+        }
+        else{
+        	System.out.println("La partie n'a pas été terminée...");
+        }
+        
+    
+        
+        
+        
+        
+        //Jeu du pendu
+        
+        String mot = "";
+        boolean aQuitter=false;
+        while(mot.length()<5 && aQuitter==false){
+        	System.out.println("Entrez un mot avec plus de 5 lettres, Quit pour quitter : ");
+        	mot = scan.next();
+        	//mot = mot.trim();
+        	if(mot.equals("Quit")){
+        		aQuitter = true;
+        	}
+        }
+        
+        if(aQuitter!=true){
+        
+	        String premiereLettre;
+	        String derniereLettre;
+	        String lettre;
+	        String replacerPremiereLettre = "_";
+	        String replacerDerniereLettre= "_";
+	        boolean estGagner=false;     
+        
+        	premiereLettre = mot.substring(0,1);
+        	derniereLettre = mot.substring(mot.length()-1, mot.length());
+        	
+        	while(estGagner == false && aQuitter == false){      		
+    			System.out.println(replacerPremiereLettre + mot.substring(1, mot.length()-1) + replacerDerniereLettre);
+    		
+        		System.out.println("Entrez une lettre, Quit pour quitter : ");
+        		lettre = scan.next();
+        		
+        		if(lettre.equals(premiereLettre)){
+        			replacerPremiereLettre = lettre;
+        		}
+        		if(lettre.equals(derniereLettre)){
+        			replacerDerniereLettre = lettre;
+        		}
+        		if(lettre.equals("Quit")){
+        			aQuitter = true;
+        		}
+        		
+        		if (replacerPremiereLettre!="_" && replacerDerniereLettre!="_" ){
+        			System.out.println("Le mot est trouvé, il s'agit bien de : " + mot);
+        			estGagner =true;
+        		}
+	        }        	
+        }
+        
+        
+        
+       
+        scan.close();
     }
 }
