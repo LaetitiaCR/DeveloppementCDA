@@ -10,6 +10,7 @@ import java.time.Month;
 import java.time.Period;
 import java.time.temporal.ChronoUnit;
 import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -126,13 +127,8 @@ public class Operations{
     	int dureePlacementMois;
     	LocalDate dateDeb = LocalDate.now(); 
     	LocalDate dateFin = LocalDate.of(2021, Month.SEPTEMBER, 7); 
-    	//LocalDate prochainAnniversaire = anniversaire.withYear(aujourdhui.getYear()); 
-    	// Si l'anniversaire a déjà eu lieu cette année, on rajoute 1 an à la date. 
-    	//if (prochainAnniversaire.isBefore(aujourdhui) || prochainAnniversaire.isEqual(aujourdhui)) { 
-    	   // prochainAnniversaire = prochainAnniversaire.plusYears(1); 
-    	//} 
-    	Period periode = Period.between(dateDeb, dateFin); // Période entre les deux indicateurs temporels. 
-    	//long nbJours = ChronoUnit.DAYS.between(dateDeb, dateFin); // Nombre exact de jours entre les deux indicateurs temporels. 
+    	
+    	Period periode = Period.between(dateDeb, dateFin); // Période entre les deux indicateurs temporels.  
     	
     	System.out.println("La fin du placement sera dans " + periode.getYears() + " an(s), "
     						+ periode.getMonths() + " mois, "
@@ -241,10 +237,7 @@ public class Operations{
 			//i = i +2;
 			nbImpair = nbImpair + 2;
     	}
-
-
-	
-    	
+  	
     
     	int nbEntreeInt = (int) nbEntree;
     	if (estNbPremier == true){
@@ -253,6 +246,185 @@ public class Operations{
     	else{
     		System.out.println(nbEntreeInt + " n'est pas un nombre premier");	
     	}
+ 
     	
+    	//Trier une liste par ordre croissant
+    	// sans doublons
+    	int tabNombreEntree [] = {20, 1, 10, 15, 3 };
+    	int tabNombreTrier [] = new int [tabNombreEntree.length];
+    	int position1;
+    	int position2;
+    	int count=0;
+    	String strTabNombreTrier = "";
+    	for (int i=0; i < tabNombreEntree.length; i++) {
+    		position1 = i;
+    		for (int y=0; y<tabNombreEntree.length; y++){
+	    		if (tabNombreEntree[position1]<tabNombreEntree[y]){
+	    			count++;
+	    		}
+    		}
+    		
+    		if (count == 0){
+    			position2 = tabNombreEntree.length-1;
+    			tabNombreTrier[position2] = tabNombreEntree[position1];
+    			
+    		}
+    		else if (count == tabNombreEntree.length-1){
+    			position2 = 0;
+    			tabNombreTrier[position2] = tabNombreEntree[position1];
+    			
+    		}
+    		else{
+    			position2 = tabNombreEntree.length - count -1 ;
+    			tabNombreTrier[position2] = tabNombreEntree[position1];
+    		}
+    		
+    		count=0;
+    		
+    	}
+    	
+    	for (int i=0; i < tabNombreTrier.length; i++) {
+    		strTabNombreTrier = strTabNombreTrier + " "  + tabNombreTrier[i] ;
+    	}
+    	System.out.println("La liste entrée à été triée par ordre croissant" + strTabNombreTrier);
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    
+    	
+    	int annee = 2024;
+    	int moisFevrier = 2;
+    	int jourDebutFevrier = 1;
+    	
+    	GregorianCalendar calendarFevrierDebut = new GregorianCalendar();
+    	
+    	//Calendar calendar = Calendar.getInstance();
+    	//calendar.setTime(2018, 11, 01);
+    	calendarFevrierDebut.set(Calendar.YEAR, annee);
+    	//les mois comme à zéro
+    	calendarFevrierDebut.set(Calendar.MONTH, moisFevrier-1);
+    	calendarFevrierDebut.set(Calendar.DAY_OF_MONTH, jourDebutFevrier);
+        int nomJourDebutFevrier = calendarFevrierDebut.get(Calendar.DAY_OF_WEEK);
+        System.out.println(nomJourDebutFevrier);
+        
+        switch (nomJourDebutFevrier) {
+		    case 1:
+		    	System.out.println("dimanche");
+				break;
+				
+			case 2:
+				System.out.println("lundi");
+				break;
+				
+			case 3:
+				System.out.println(" mardi");
+				break;
+				
+			case 4:
+				System.out.println("mercredi");
+				break;
+			case 5:
+				System.out.println("jeudi");
+				break;
+			case 6:
+				System.out.println("vendredi");
+				break;
+			case 7:
+				System.out.println("samedi");
+				break;
+			
+			default:
+				System.out.println("erreur");
+				break;
+        }
+        
+       
+       
+      
+    	int moisMars = 3;
+    	int jourDebutMars = 1;
+        
+        
+    	//int jourFin = 29;	
+        
+        GregorianCalendar calendarMarsDebut = new GregorianCalendar();
+    	
+    	//Calendar calendar = Calendar.getInstance();
+    	//calendar.setTime(2018, 11, 01);
+        calendarMarsDebut.set(Calendar.YEAR, annee);
+        calendarMarsDebut.set(Calendar.MONTH, moisMars-1);
+        calendarMarsDebut.set(Calendar.DAY_OF_MONTH, jourDebutMars);
+        
+        //on enlève 1 jours à mars
+        calendarMarsDebut.add(Calendar.DATE, -1);
+        
+        int dernierJourFevrier = calendarMarsDebut.get(Calendar.DAY_OF_MONTH);
+        
+        System.out.println(dernierJourFevrier);
+        
+        if(dernierJourFevrier==29){
+        	System.out.println("L'année " + annee + " est une année bissextile");
+        }
+        else if(dernierJourFevrier==28){
+        	System.out.println("L'année " + annee + " n'est pas une année bissextile");
+        }
+       
+        
+        
+        
+        
+        
+        //jeu ordinateur et un joueur
+       
+        int min = 0;
+        int max = 2;
+        String nbEntrerStr;
+        int nbEntrerInt;
+        Scanner maSaisie = new Scanner( System.in );
+        int scoreOrdinateur =0;
+        int scoreJoueur = 0;
+        int nbQuitter =0;
+        while (scoreJoueur <=10 || scoreOrdinateur <=10 || nbQuitter > 0){
+        	System.out.println("Entrer un nombre 0, 1 ou 2, Entrer un nombre négatif pour sortir : ");
+        	nbEntrerStr = maSaisie.next();
+        	nbEntrerInt = Integer.parseInt(nbEntrerStr);
+        	if(nbEntrerInt == 0 || nbEntrerInt == 1 || nbEntrerInt == 2){	
+        		int nbAleatoire = min + (int)(Math.random() * ((max - min) + 1));
+        		System.out.println("Le nombre tiré par l'ordiateur est : " + nbAleatoire);
+        		if(nbAleatoire>nbEntrerInt){
+        			scoreOrdinateur = scoreOrdinateur +1;
+        		}
+        		else if(nbAleatoire<nbEntrerInt){
+        			scoreJoueur = scoreJoueur + 1;
+        		}
+        	}
+        	else if(nbEntrerInt < 0){
+        		break;	//on quitte la partie
+        	}
+        	else{
+        		System.out.println("Erreur");
+        	}
+        	
+        	System.out.println("Les scores sont, pour l'ordinateur : " + scoreOrdinateur + " et pour le joueur : " + scoreJoueur);
+        }
+       
+        maSaisie.close();
+        
     }
 }
