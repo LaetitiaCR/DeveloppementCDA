@@ -1,3 +1,4 @@
+package mesBrouillons.creation;
 public class Calcul{
 	
 	float moyenneMDN;

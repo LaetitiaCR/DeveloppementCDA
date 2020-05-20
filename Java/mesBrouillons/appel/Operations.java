@@ -1,3 +1,4 @@
+package mesBrouillons.appel;
 
 import java.sql.Date;
 import java.text.DecimalFormat;
@@ -13,6 +14,8 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.Locale;
 import java.util.Scanner;
+
+import mesBrouillons.creation.Calcul;
 
 public class Operations{
 
