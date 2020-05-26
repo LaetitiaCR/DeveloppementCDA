@@ -155,7 +155,7 @@ public class Operations{
     	   	
     	//indique si le chifffre Entree est un nombre premier
     	
-    	/*
+    	
     	//entrer un nombre différent de 0 et 1 et 2
     	float nbEntree=25;
     	int nbMaxPremierListe = (int) Math.sqrt(nbEntree);
@@ -256,7 +256,7 @@ public class Operations{
     		System.out.println(nbEntreeInt + " n'est pas un nombre premier");	
     	}
  
-    	*/
+    	
     	
     	
     	
