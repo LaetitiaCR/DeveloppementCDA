@@ -1,5 +1,5 @@
 //appel du module à exporter Employee
-const { Employee } = require("./Employee");
+const { Employee } = require("Employee");
 
 //insertion des données dans la class Employee
 // @var Employee employee1 
