@@ -65,7 +65,7 @@ class Enterprise {
             // cloner l'objet : let copie = Object.assign()
             // moteur de recherche : MDN JS object assign
             // moteur de recherche newbie: JS cloner objet
-            let clone = Object.assign({}, emp); //object.assing() method
+            let clone = Object.assign(new Employee(), emp); //creer une instance de l' objet Employee à partit de l'objet emp
             return clone;
         }
 
