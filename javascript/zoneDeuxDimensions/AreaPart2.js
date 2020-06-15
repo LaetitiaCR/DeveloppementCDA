@@ -43,22 +43,18 @@ class AreaPart2 {
      * Les nouvelles coordonnées peuvent se trouver hors limites
      * @returns Boolean true en cas de succès, false en cas d'échec
      */
-    movePoint(_x, _y, _point) {
+    movePoint(_point) {
         // implémenter la méthode
 
         if ((typeof _point) !== 'Point') {
             return false;
         }
 
-        this.newPointX = parseInt(_x) * 10;
-        this.newPointY = parseInt(_y) * 10;
-
-        if (this.newPointX > this.area.width || this.newPointY > this.area.height) {
-            return false;
-        }
-
         // A vous de jouer
-        _point.movePoint(this.newPointX, this.newPointX);
+        this.point = _point;
+
+
+
 
         return true;
 
@@ -70,8 +66,23 @@ class AreaPart2 {
      * Chaque Point hors des limites est automatiquement déplacé dans les limites vers la position libre la plus proche
      * @returns int le nombre de points déplacés
      */
-    needAllInside( /* déterminer les paramètres */ ) {
+    needAllInside(_point) {
         // implémenter la méthode
+
+        /*
+        if ((typeof _point) != 'Point') {
+            return false;
+        }
+        */
+
+        this.point = _point;
+
+        if (this.point.x > this.width || this.point.y > this.height) {
+
+            return false;
+        }
+
+        return true;
 
     }
 }

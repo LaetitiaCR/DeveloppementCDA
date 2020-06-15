@@ -34,18 +34,41 @@ console.log(a1p1);
 console.log(area1);
 console.log(a1p1.x, a1p1.y);
 //console.log()
-let deplaceX = 3;
-let deplaceY = 4;
-area1.movePoint(deplaceX, deplaceY, a1p1);
+let deplaceX = 1 * 10;
+let deplaceY = 2 * 10;
+
+a1p1.move(deplaceX, deplaceY);
+
+area1.movePoint(a1p1);
+//area1.movePoint(deplaceX, deplaceY, a1p1);
 //console.log(deplacePoint.a1p1.x, deplacePoint.a1p1.x);
 console.log(a1p1.x, a1p1.y);
+//console.log(point.x, point.y);
+
+let isInside = area1.needAllInside(a1p1);
+//console.log(a1p1.x + " " + area1.width + " " + a1p1.y + " " + area1.height);
+console.log(isInside);
+console.log("");
+
+
+
+
 
 console.log(a1p2.x, a1p2.y);
-deplaceX = 1;
-deplaceY = 2;
-area1.movePoint(deplaceX, deplaceY, a1p2);
+deplaceX = 1 * 10;
+deplaceY = 2 * 10;
+a1p2.move(deplaceX, deplaceY);
+area1.movePoint(a1p2);
 //console.log(pt.x, pt.y);
 console.log(a1p2.x, a1p2.y);
+//console.log(area1.point.x, area1.point.y)
+
+
+
+
+
+
+
 
 /*
 width = 6; //6 colonnes

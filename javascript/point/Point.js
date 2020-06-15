@@ -19,16 +19,24 @@ class Point {
         return "(" + this.x + "," + this.y + ")";
     }
 
+
+
+
     move(_x, _y) {
         this.x = parseInt(_x);
         this.y = parseInt(_y);
     }
 
+
+
+
+    //nouveau point avec les coordonnées du point d'instance
     duplicate() {
         const pt2 = new Point(this.x, this.y);
         return pt2;
     }
 
+    //copy les coordonnées du point
     copy(_point) {
         this.x = _point.x;
         this.y = _point.y;
