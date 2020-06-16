@@ -46,7 +46,7 @@ console.log(a1p1.x, a1p1.y);
 //console.log(point.x, point.y);
 
 
-let isInside = area1.needAllInside(a1p1.x, a1p1.y);
+let isInside = area1.needAllInside();
 //console.log( + " " + area1.width + " " +  + " " + area1.height);
 console.log(isInside);
 console.log("");

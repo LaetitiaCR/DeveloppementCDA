@@ -66,10 +66,10 @@ class AreaPart2 {
      * Chaque Point hors des limites est automatiquement déplacé dans les limites vers la position libre la plus proche
      * @returns int le nombre de points déplacés
      */
-    needAllInside(_x, _y) {
+    needAllInside() {
         // implémenter la méthode
 
-        if (_x > this.width || _y > this.height) {
+        if (this.x > this.width || this.y > this.height) {
 
             return false;
         }
