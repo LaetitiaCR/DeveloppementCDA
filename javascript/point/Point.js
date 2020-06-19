@@ -50,7 +50,32 @@ class Point {
         _point.y = y2;
     }
 
+    symetrieOrdonnee() {
+        if (this.x >= 0) {
+            this.x = x - 2 * x;
+        } else {
+            this.x = x + 2 * x;
+        }
+    }
+    symetrieAbscisse() {
+        if (this.y >= 0) {
+            this.y = y - 2 * y;
+        } else {
+            this.y = y + 2 * x;
+        }
+    }
+    symetrie() {
+        symetrieOrdonnee();
+        symetrieAdbscisse();
+    }
 
+    permutter() {
+        x = symetrieAdbscisse();
+        y = symetrieOrdonnee();
+
+        this.x = y;
+        this.y = x;
+    }
 }
 
 
