@@ -2,15 +2,11 @@
 using System.Collections.Generic;
 using System.Text;
 
-
 namespace WindowsFormsAppMyAppli.FoldZoo.MyLibrairieCLASSES
 {
-    interface IDeplaceable
+    interface IParlable
     {
-        void Deplacer();
-        IDeplaceable NextDeplace();
-        
+        void Parler();
+       
     }
 }
-
-

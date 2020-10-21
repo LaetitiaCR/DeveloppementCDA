@@ -22,7 +22,10 @@ namespace WindowsFormsAppMyAppli.FoldZoo.MyLibrairieCLASSES
         int IComparable.CompareTo(object obj)
         {
             return this.dateDeNaissance.CompareTo(obj);
-        }  
+        }
+
+
+     
 
 
     }
